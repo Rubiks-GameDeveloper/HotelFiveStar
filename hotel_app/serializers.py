@@ -27,7 +27,6 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        # Автоматически привязываем к текущему пользователю, если не указан
         if 'guest' not in validated_data:
             validated_data['guest'] = self.context['request'].user
         return super().create(validated_data)

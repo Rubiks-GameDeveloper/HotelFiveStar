@@ -6,10 +6,9 @@ from .serializers import GuestSerializer, RoomSerializer, BookingSerializer
 class GuestViewSet(viewsets.ModelViewSet):
     serializer_class = GuestSerializer
     permission_classes = [IsAuthenticated]
-    queryset = Guest.objects.all()  # Добавили обратно
+    queryset = Guest.objects.all()
 
     def get_queryset(self):
-        # Переопределяем, чтобы пользователь видел только себя
         return Guest.objects.filter(id=self.request.user.id)
 
 class RoomViewSet(viewsets.ModelViewSet):
@@ -20,7 +19,7 @@ class RoomViewSet(viewsets.ModelViewSet):
 class BookingViewSet(viewsets.ModelViewSet):
     serializer_class = BookingSerializer
     permission_classes = [IsAuthenticated]
-    queryset = Booking.objects.all()  # Добавили обратно
+    queryset = Booking.objects.all()
 
     def get_queryset(self):
         return Booking.objects.filter(guest=self.request.user)

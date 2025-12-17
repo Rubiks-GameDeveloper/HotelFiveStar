@@ -143,7 +143,7 @@ AUTH_USER_MODEL = 'hotel_app.Guest'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SWAGGER_SETTINGS = {
-    'USE_SESSION_AUTH': False,  # Отключаем стандартную сессионную авторизацию Django
+    'USE_SESSION_AUTH': False,
     'SECURITY_DEFINITIONS': {
         'Bearer': {
             'type': 'apiKey',
